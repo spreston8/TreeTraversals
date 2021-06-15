@@ -68,7 +68,7 @@ void Tree::nonRecursiveInsert(int elemToInsert)
 
 			if (currentNode->data == elemToInsert)
 			{
-				cerr << "The item to insert is already in the list. "
+				cerr << "Element " << elemToInsert << " is already in the list. "
 					<< "Duplicates are not allowed." << endl;
 
 				isDuplicate = true;
