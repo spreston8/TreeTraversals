@@ -1,15 +1,15 @@
-#include "Tree.h"
+#include "BST.h"
 
 using namespace std;
 
 //recursiveInsert
-void Tree::recursiveInsert(int elemToInsert)
+void BST::recursiveInsert(int elemToInsert)
 {
 	recursiveInsert(root, elemToInsert);
 }
 
 //recursiveInsert (private)
-void Tree::recursiveInsert(Node*& ptr, int elemToInsert)
+void BST::recursiveInsert(Node*& ptr, int elemToInsert)
 {
 	if (ptr == nullptr)
 	{
@@ -28,25 +28,8 @@ void Tree::recursiveInsert(Node*& ptr, int elemToInsert)
 		recursiveInsert(ptr->rlink, elemToInsert);
 }
 
-//recursiveInorder
-void Tree::recursiveInorder() const
-{
-	recursiveInorder(root);
-}
-
-//recursiveInorder (private)
-void Tree::recursiveInorder(Node* ptr) const
-{
-	if (ptr != nullptr)
-	{
-		recursiveInorder(ptr->llink);
-		cout << ptr->data << " ";
-		recursiveInorder(ptr->rlink);
-	}
-}
-
 //nonRecursiveInsert
-void Tree::nonRecursiveInsert(int elemToInsert)
+void BST::nonRecursiveInsert(int elemToInsert)
 {
 
 	if (root == nullptr)
@@ -100,23 +83,27 @@ void Tree::nonRecursiveInsert(int elemToInsert)
 	}
 }
 
-//nonRecursiveInorder
-void Tree::nonRecursiveInorder() const
+//emptyBST
+void BST::emptyBST()
 {
-	stack<Node*> nodeStack;
-	Node* currentNode = root;
+	deleteBST(root);
+	count = 0;
+}
 
-	while (currentNode != nullptr || !nodeStack.empty())
+//clearBST
+void  BST::deleteBST(Node*& ptr)
+{
+	if (ptr != nullptr)
 	{
-		while (currentNode != nullptr)
-		{
-			nodeStack.push(currentNode);
-			currentNode = currentNode->llink;
-		}
-
-		Node* poppedNode = nodeStack.top();
-		cout << poppedNode->data << ' ';
-		nodeStack.pop();
-		currentNode = poppedNode->rlink;
+		deleteBST(ptr->llink);
+		deleteBST(ptr->rlink);
+		delete ptr;
+		ptr = nullptr;
 	}
+}
+
+//destructor
+BST::~BST()
+{
+	deleteBST(root);
 }

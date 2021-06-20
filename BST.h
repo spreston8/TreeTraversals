@@ -1,5 +1,5 @@
-#ifndef TREE_H
-#define TREE_H
+#ifndef BST_H
+#define BST_H
 
 #include <iostream>
 #include <string>
@@ -7,7 +7,7 @@
 
 class Node
 {
-	friend class Tree;
+	friend class BST;
 public:
 	Node() : data(0), rlink(nullptr), llink(nullptr) {}
 	~Node() {}
@@ -16,31 +16,35 @@ private:
 	Node* rlink, * llink;
 };
 
-class Tree
+class BST
 {
 public:
 
-	Tree();
+	BST() : root(nullptr), count(0) {}
 
-	int totalNodes() const;
-	bool isEmpty() const;
-	void emptyTree();
+	int totalNodes() const { return count; }
+	bool isEmpty() const { return (root == nullptr);  }
 
-	~Tree();
+	void recursiveInsert(int);
+	void nonRecursiveInsert(int);
+	void emptyBST();
 
 	//Inorder
-	void recursiveInsert(int);
 	void recursiveInorder() const;
-
-	void nonRecursiveInsert(int);
 	void nonRecursiveInorder() const;
 
-private:
-	void clearTree(Node*&);
+	//Preorder
+	void recursivePreorder() const;
+	void nonRecursivePreorder() const;
+	
+	~BST();
 
-	//Inorder
+private:
 	void recursiveInsert(Node*&, int);
+	void deleteBST(Node*&);
+
 	void recursiveInorder(Node*) const;
+	void recursivePreorder(Node*) const;
 
 	Node* root; //pointer to the root
 	int count;  //number of nodes
