@@ -7,38 +7,20 @@ using namespace std;
 
 int main() {
 
-	{
-		cout << "*********TESTING PREORDER FUNCTIONS*********\n\n";
+		cout << "*********TESTING INSERTING FUNCTIONS*********\n\n";
 
-		//Recursive, 1
-
-
-	}
-
-	{
-		cout << "*********TESTING INORDER FUNCTIONS*********\n\n";
-
-		//Recursive, 1
 		vector<int> v1 = { 49, 35, 89, 24, 15, 16, 45, 67 };
 		int vSize1 = static_cast<int>(v1.size());
 
-		BST tree1;
+		BST tree;
 		cout << "Inserting { ";
 		for (const int& i : v1)
 			cout << i << ", ";
 		cout << "} recursively...\n\n";
 
 		for (const int& i : v1)
-			tree1.recursiveInsert(i);
+			tree.recursiveInsert(i);
 
-		cout << "Inorder traversal (recursive):\n      ";
-		if (!tree1.isEmpty())
-			tree1.recursiveInorder();
-		else
-			cerr << "BST is empty.";
-		cout << "\n\n";
-
-		//Non-recursive, 2
 		vector<int> v2 = { 59, 46, 58, 59, 25, 12, 76, 59, 12 };
 		int vSize2 = static_cast<int>(v2.size());
 
@@ -50,14 +32,40 @@ int main() {
 
 		for (const int& i : v2)
 			tree2.nonRecursiveInsert(i);
+		cout << endl;
 
+
+		cout << "*********TESTING INORDER FUNCTIONS*********\n\n";
+
+		//Recursive
+		cout << "Inorder traversal (recursive):\n      ";
+		if (!tree.isEmpty())
+			tree.recursiveInorder();
+		else
+			cerr << "BST is empty.";
+		cout << "\n";
+
+		//Non-recursive
 		cout << "\nInorder traversal (non-recursive):\n      ";
 		if (!tree2.isEmpty())
 			tree2.nonRecursiveInorder();
 		else
-			cerr << "BST is empt.";
-		cout << endl;
-	}
+			cerr << "BST is empty.";
+		cout << "\n\n";
+
+
+		cout << "*********TESTING PREORDER FUNCTIONS*********\n\n";
+
+		//Recursive
+		cout << "Preorder traversal (recursive):\n      ";
+		if (!tree.isEmpty())
+			tree.recursivePreorder();
+		else
+			cerr << "BST is empty.";
+		cout << "\n";
+
+
+
 
 	return 0;
 }

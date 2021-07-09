@@ -42,12 +42,18 @@ void BST::nonRecursiveInorder() const
 //Preorder
 void BST::recursivePreorder() const
 {
-
+	recursivePreorder(root);
 }
 
 void BST::recursivePreorder(Node* ptr) const //private
 {
-
+	if (ptr != nullptr)
+	{
+		cout << ptr->data << " ";
+		recursivePreorder(ptr->llink);
+		recursivePreorder(ptr->rlink);
+		
+	}
 }
 
 void BST::nonRecursivePreorder() const
