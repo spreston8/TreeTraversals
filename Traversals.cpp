@@ -80,3 +80,48 @@ void BST::nonRecursivePreorder() const
 		}
 	}
 }
+
+
+//Postorder
+void BST::recursivePostorder() const
+{
+	recursivePostorder(root);
+}
+
+
+void BST::recursivePostorder(Node* ptr) const //private
+{
+	if (ptr != nullptr)
+	{
+		recursivePostorder(ptr->llink);
+		recursivePostorder(ptr->rlink);
+		cout << ptr->data << " ";
+	}
+}
+
+void BST::nonRecursivePostorder() const 
+{
+	stack<Node*> nodeStack1, nodeStack2;
+	Node* currentNode = root;
+	nodeStack1.push(root);
+
+	while (!nodeStack1.empty())
+	{
+		currentNode = nodeStack1.top();
+		nodeStack1.pop();
+		nodeStack2.push(currentNode);
+
+		if (currentNode->llink)
+			nodeStack1.push(currentNode->llink);
+		if (currentNode->rlink)
+			nodeStack1.push(currentNode->rlink);
+	}
+
+	while (!nodeStack2.empty())
+	{
+		currentNode = nodeStack2.top();
+		nodeStack2.pop();
+		cout << currentNode->data << ' ';
+	}
+
+}

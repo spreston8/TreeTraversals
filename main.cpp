@@ -37,7 +37,7 @@ int main() {
 
 		cout << "*********TESTING INORDER FUNCTIONS*********\n\n";
 
-		//Recursive
+		//Recursive Inorder
 		cout << "Inorder traversal (recursive):\n      ";
 		if (!tree.isEmpty())
 			tree.recursiveInorder();
@@ -45,7 +45,7 @@ int main() {
 			cerr << "BST is empty.";
 		cout << "\n";
 
-		//Non-recursive
+		//Non-recursive Inorder
 		cout << "\nInorder traversal (non-recursive):\n      ";
 		if (!tree2.isEmpty())
 			tree2.nonRecursiveInorder();
@@ -56,7 +56,7 @@ int main() {
 
 		cout << "*********TESTING PREORDER FUNCTIONS*********\n\n";
 
-		//Recursive
+		//Recursive Preorder
 		cout << "Preorder traversal (recursive):\n      ";
 		if (!tree.isEmpty())
 			tree.recursivePreorder();
@@ -64,10 +64,29 @@ int main() {
 			cerr << "BST is empty.";
 		cout << "\n";
 
-		//Non-recursive
+		//Non-recursive Preorder
 		cout << "\nPreorder traversal (non-recursive):\n      ";
 		if (!tree2.isEmpty())
 			tree2.nonRecursivePreorder();
+		else
+			cerr << "BST is empty.";
+		cout << "\n\n";
+
+
+		cout << "*********TESTING POSTORDER FUNCTIONS*********\n\n";
+
+		//Recursive Postorder
+		cout << "Postorder traversal (recursive):\n      ";
+		if (!tree.isEmpty())
+			tree.recursivePostorder();
+		else
+			cerr << "BST is empty.";
+		cout << "\n";
+
+		//Non-recursive Postorder
+		cout << "\nPostorder traversal (non-recursive):\n      ";
+		if (!tree2.isEmpty())
+			tree2.nonRecursivePostorder();
 		else
 			cerr << "BST is empty.";
 		cout << "\n\n";

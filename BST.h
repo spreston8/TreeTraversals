@@ -36,6 +36,10 @@ public:
 	//Preorder
 	void recursivePreorder() const;
 	void nonRecursivePreorder() const;
+
+	//Postorder
+	void recursivePostorder() const;
+	void nonRecursivePostorder() const;
 	
 	~BST();
 
@@ -45,6 +49,7 @@ private:
 
 	void recursiveInorder(Node*) const;
 	void recursivePreorder(Node*) const;
+	void recursivePostorder(Node*) const;
 
 	Node* root; //pointer to the root
 	int count;  //number of nodes
