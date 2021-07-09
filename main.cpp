@@ -64,7 +64,13 @@ int main() {
 			cerr << "BST is empty.";
 		cout << "\n";
 
-
+		//Non-recursive
+		cout << "\nPreorder traversal (non-recursive):\n      ";
+		if (!tree2.isEmpty())
+			tree2.nonRecursivePreorder();
+		else
+			cerr << "BST is empty.";
+		cout << "\n\n";
 
 
 	return 0;

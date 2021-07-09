@@ -58,5 +58,25 @@ void BST::recursivePreorder(Node* ptr) const //private
 
 void BST::nonRecursivePreorder() const
 {
+	stack<Node*> nodeStack;
+	Node* currentNode = root;
 
+	while (currentNode != nullptr || !nodeStack.empty())
+	{
+		while (currentNode != nullptr)
+		{
+			cout << currentNode->data << ' ';
+
+			if (currentNode->rlink)
+				nodeStack.push(currentNode->rlink);
+
+			currentNode = currentNode->llink;
+		}
+
+		if (!nodeStack.empty()) 
+		{
+			currentNode = nodeStack.top();
+			nodeStack.pop();
+		}
+	}
 }
