@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <queue>
 
 class Node
 {
@@ -40,6 +41,10 @@ public:
 	//Postorder
 	void recursivePostorder() const;
 	void nonRecursivePostorder() const;
+
+	//Levelorder
+	void recursiveLevelorder() const;
+	void nonRecursiveLevelorder() const;
 	
 	~BST();
 
@@ -50,6 +55,7 @@ private:
 	void recursiveInorder(Node*) const;
 	void recursivePreorder(Node*) const;
 	void recursivePostorder(Node*) const;
+	void recursiveLevelorder(Node*) const;
 
 	Node* root; //pointer to the root
 	int count;  //number of nodes

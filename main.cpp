@@ -92,5 +92,23 @@ int main() {
 		cout << "\n\n";
 
 
+		cout << "*********TESTING LEVELORDER FUNCTIONS*********\n\n";
+
+		////Recursive Levelorder
+		//cout << "Levelorder traversal (recursive):\n      ";
+		//if (!tree.isEmpty())
+		//	tree.recursiveLevelorder();
+		//else
+		//	cerr << "BST is empty.";
+		//cout << "\n";
+
+		//Non-recursive Levelorder
+		cout << "\nLevelorder traversal (non-recursive):\n      ";
+		if (!tree2.isEmpty())
+			tree2.nonRecursiveLevelorder();
+		else
+			cerr << "BST is empty.";
+		cout << "\n\n";
+
 	return 0;
 }

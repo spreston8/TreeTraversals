@@ -123,5 +123,35 @@ void BST::nonRecursivePostorder() const
 		nodeStack2.pop();
 		cout << currentNode->data << ' ';
 	}
-
 }
+
+
+//LevelOrder
+void BST::recursiveLevelorder() const
+{
+	//recursiveLevelorder(root);
+}
+
+void BST::recursiveLevelorder(Node* ptr) const
+{
+	
+}
+
+
+void BST::nonRecursiveLevelorder() const
+{
+	queue<Node*> nodeQueue;
+	nodeQueue.push(root);
+
+	while (!nodeQueue.empty())
+	{
+		Node* currentNode = nodeQueue.front();
+		cout << currentNode->data << ' ';
+		nodeQueue.pop();
+
+		if (currentNode->llink)
+			nodeQueue.push(currentNode->llink);
+		if (currentNode->rlink)
+			nodeQueue.push(currentNode->rlink);
+	}
+ }
